@@ -1,9 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>For Aastha 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aastha ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 90%;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    position: relative;
+    height: 130px;
+}
+
+button {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+#yesBtn {
+    background: white;
+    color: #ff4f81;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#yesBtn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+#noBtn {
+    background: rgba(255,255,255,0.3);
+    color: white;
+    left: 20%;
+}
+
+.hidden {
+    display: none;
+}
+
+.heart {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 20px;
+}
+
+.message {
+    margin-top: 25px;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+#playMusic {
+    margin-top: 25px;
+    padding: 10px 22px;
+    border-radius: 22px;
+    border: none;
+    background: white;
+    color: #ff4f81;
+    font-size: 1rem;
+    cursor: pointer;
+}
+</style>
 </head>
-<body style="background:black; color:white; text-align:center; margin-top:20%;">
-  <h1>Will you be my Valentine, Aastha? 💘</h1>
+
+<body>
+
+<!-- FIRST SCREEN -->
+<div class="container" id="firstScreen">
+    <h1>Will you be my Valentine, Aastha? 💖</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+        <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+    </div>
+</div>
+
+<!-- SECOND SCREEN -->
+<div class="container hidden" id="secondScreen">
+    <h1>I love you, Aastha ❤️</h1>
+
+    <div class="heart">
+  Aastha   Aastha
+Aastha Aastha Aastha
+Aastha Aastha Aastha
+  Aastha Aastha
+    Aastha
+    </div>
+
+    <div class="message">
+        <!-- YOU CAN EDIT THIS TEXT LATER -->
+        You are my calm in chaos, my smile on difficult days,
+        and someone I care about deeply — gently, honestly, truly.
+    </div>
+
+    <button id="playMusic">Tap to Play Music 🎵</button>
+</div>
+
+<audio id="song"></audio>
+
+<script>
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * 70 + "%";
+    btn.style.top = Math.random() * 70 + "%";
+}
+
+function sayYes() {
+    document.getElementById("firstScreen").classList.add("hidden");
+    document.getElementById("secondScreen").classList.remove("hidden");
+}
+
+document.getElementById("playMusic").onclick = function () {
+    document.getElementById("song").play();
+    this.style.display = "none";
+};
+</script>
+
 </body>
 </html>
